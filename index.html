@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Alicia Kardar | A Very Important Question</title>
+
+    <!-- Connect the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Load JavaScript after the HTML is ready -->
+    <script src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <main class="card" id="mainCard">
+      <!-- FIRST SCREEN -->
+      <section id="questionScreen" class="screen">
+        <div class="heart-icon" aria-hidden="true">♥</div>
+
+        <p class="eyebrow">A VERY IMPORTANT QUESTION</p>
+
+        <h1>
+          Do you love
+          <span class="pink-text">Alicia kardar?</span>
+        </h1>
+
+        <p class="description">
+          Think carefully, love.
+          <br />
+          i am waiting for your answer.
+        </p>
+
+        <div class="button-stage" id="buttonStage">
+          <button id="yesButton" class="button yes-button">
+            YES, OBVIOUSLY
+          </button>
+
+          <button id="noButton" class="button no-button">NO</button>
+        </div>
+
+        <p id="teaseMessage" class="tease-message" aria-live="polite">
+          Choose wisely. I am watching.
+        </p>
+      </section>
+
+      <!-- SECOND SCREEN: THE YES REVEAL -->
+      <section id="loveScreen" class="screen hidden">
+        <div class="heart-icon celebration-heart" aria-hidden="true">♥</div>
+
+        <p class="eyebrow">THE ONLY CORRECT ANSWER</p>
+
+        <h1 class="reveal-title">I KNEW IT! LOVE U TOO</h1>
+
+        <p class="description">we're stuck together forever.</p>
+
+        <h2 class="love-message">I value our bond so much.</h2>
+
+        <p class="description final-description">
+          Seperated by distance,united by hearts.
+          <br />
+          You're officially part of Alicia's limited love circle.
+        </p>
+
+        <button id="replayButton" class="button replay-button">
+          LET'S DO THAT AGAIN
+        </button>
+      </section>
+    </main>
+
+    <footer class="footer">MADE WITH LOVE & A LITTLE CHAOS</footer>
+  </body>
+</html>

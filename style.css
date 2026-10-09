@@ -1,0 +1,410 @@
+/* ===================================
+   ALICIA KARDAR — DARK ROMANCE
+   + DREAMY PINK NEON
+=================================== */
+
+:root {
+  --background: #100b18;
+  --background-soft: #211128;
+  --pink: #ff91d5;
+  --pink-light: #ffd0eb;
+  --purple: #b88aff;
+  --text: #fff6fd;
+  --muted: #d2c0d9;
+  --glass: rgba(255, 255, 255, 0.055);
+  --border: rgba(255, 177, 227, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 28px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+
+  color: var(--text);
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+  background:
+    radial-gradient(ellipse at 50% 0%, #55264e 0%, transparent 50%),
+    linear-gradient(145deg, #100b18, #24112d 52%, #110a1b);
+}
+
+/* BACKGROUND LIGHT EFFECTS */
+
+.background-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1;
+  animation: glowDrift 9s ease-in-out infinite alternate;
+}
+
+.glow-one {
+  background: #ff4fbc;
+  top: -100px;
+  left: -100px;
+}
+
+.glow-two {
+  background: #874bff;
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -4s;
+}
+
+/* MAIN GLASS CARD */
+
+.card {
+  width: min(100%, 480px);
+  padding: 42px 26px;
+  position: relative;
+  z-index: 1;
+
+  text-align: center;
+
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 90px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(255, 105, 202, 0.07);
+
+  animation: cardEntrance 0.9s ease both;
+}
+
+/* TYPOGRAPHY */
+
+.eyebrow {
+  color: var(--pink);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  line-height: 1.8;
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: clamp(32px, 8vw, 46px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.pink-text {
+  display: block;
+  margin-top: 8px;
+  color: var(--pink);
+  text-shadow:
+    0 0 10px rgba(255, 145, 213, 0.5),
+    0 0 30px rgba(255, 88, 193, 0.2);
+}
+
+.description {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.heart-icon {
+  color: var(--pink);
+  font-size: 54px;
+  text-shadow:
+    0 0 12px rgba(255, 145, 213, 0.7),
+    0 0 35px rgba(255, 80, 190, 0.4);
+
+  animation: heartbeat 1.7s ease-in-out infinite;
+}
+
+/* BUTTON AREA */
+
+.button-stage {
+  position: relative;
+  width: 100%;
+  min-height: 145px;
+  margin-top: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 4px;
+}
+
+.button {
+  min-height: 48px;
+  padding: 13px 19px;
+
+  border: 1px solid transparent;
+  border-radius: 13px;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  touch-action: manipulation;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.yes-button {
+  color: #32132c;
+  background: linear-gradient(135deg, #ffd1ec, #ff8bd0);
+
+  box-shadow:
+    0 0 18px rgba(255, 120, 204, 0.25),
+    0 5px 18px rgba(0, 0, 0, 0.2);
+}
+
+.yes-button:hover {
+  background: #ffe3f3;
+  box-shadow: 0 0 30px rgba(255, 120, 204, 0.5);
+  transform: translateY(-2px);
+}
+
+.no-button {
+  color: var(--text);
+  background: rgba(73, 46, 82, 0.9);
+  border-color: rgba(255, 177, 227, 0.25);
+
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  will-change: left, top, transform;
+}
+
+/* TEASING MESSAGE */
+
+.tease-message {
+  min-height: 48px;
+  margin: 0;
+  padding: 8px 0;
+
+  color: var(--pink-light);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+
+  text-shadow: 0 0 14px rgba(255, 145, 213, 0.2);
+}
+
+.tease-message.show-message {
+  animation: messagePop 0.35s ease both;
+}
+
+/* YES REVEAL */
+
+.hidden {
+  display: none !important;
+}
+
+.love-message {
+  margin: 26px 0 16px;
+  color: var(--pink-light);
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: normal;
+
+  text-shadow:
+    0 0 12px rgba(255, 145, 213, 0.6),
+    0 0 35px rgba(255, 100, 200, 0.25);
+}
+
+.reveal-title {
+  color: var(--pink);
+  text-shadow: 0 0 25px rgba(255, 100, 200, 0.35);
+}
+
+.final-description {
+  margin-bottom: 28px;
+}
+
+.celebration-heart {
+  animation: celebrate 0.8s ease-in-out infinite alternate;
+}
+
+.replay-button {
+  color: var(--pink-light);
+  background: rgba(255, 145, 213, 0.08);
+  border-color: var(--border);
+}
+
+.replay-button:hover {
+  background: rgba(255, 145, 213, 0.18);
+}
+
+/* FLOATING HEARTS CREATED BY JAVASCRIPT */
+
+.floating-heart {
+  position: fixed;
+  bottom: -50px;
+  left: var(--left);
+  z-index: 5;
+
+  color: var(--pink);
+  font-size: var(--size);
+
+  pointer-events: none;
+  text-shadow: 0 0 15px rgba(255, 105, 202, 0.7);
+
+  animation: floatUp var(--duration) ease-in forwards;
+}
+
+/* FOOTER */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+
+  color: rgba(255, 214, 240, 0.55);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* ANIMATIONS */
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes glowDrift {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(45px, 35px);
+  }
+}
+
+@keyframes messagePop {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes celebrate {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 380px) {
+  .card {
+    padding: 34px 18px;
+  }
+
+  .button {
+    padding: 12px 14px;
+    font-size: 11px;
+  }
+
+  .button-stage {
+    gap: 10px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  /* Smooth movement for the escaping NO button */
+  #noButton {
+    transition:
+      left 0.18s ease,
+      top 0.18s ease;
+  }
+
+  /* Animate the final screen when it appears */
+  #loveScreen:not(.hidden) {
+    animation: loveReveal 0.9s ease both;
+  }
+
+  @keyframes loveReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.94);
+    }
+
+    60% {
+      opacity: 1;
+      transform: translateY(-4px) scale(1.015);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
